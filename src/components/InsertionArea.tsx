@@ -1,11 +1,16 @@
+import { Table } from "../interface/table";
 import AddRelation from "./AddRelation";
 import InsertTable from "./InsertTable";
 import "./InsertionArea.css";
 
-function InsertionArea() {
+interface InsertionAreaProps{
+  addTable: (table: Table) => void
+}
+
+function InsertionArea({addTable}: InsertionAreaProps) {
   return (
     <div className="insertion-area">
-      <InsertTable />
+      <InsertTable addTable={addTable} />
       <AddRelation />
       
     </div>

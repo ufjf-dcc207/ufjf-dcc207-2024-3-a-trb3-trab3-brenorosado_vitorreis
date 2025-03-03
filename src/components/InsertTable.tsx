@@ -1,8 +1,14 @@
 import { useState } from "react";
 import "./InsertTable.css";
 import InsertColumn from "./InsertColumn";
+import { Table } from "../interface/table";
+import { Column } from "../interface/column";
 
-export default function InsertTable() {
+interface InsertionTableProps{
+  addTable: (table: Table) => void
+}
+
+export default function InsertTable({addTable}: InsertionTableProps) {
   const [tableName, setTableName] = useState("");
   const [fields, setFields] = useState([{name: "", type: ""}]);
 
@@ -21,7 +27,21 @@ export default function InsertTable() {
   };
 
   const finalizeTable = () => {
-    console.log("Tabela finalizada:", { tableName, fields });
+    const newColumns:Column[] = []
+    fields.forEach((field) => {
+      newColumns.push({
+        id: Date.now(),
+        name: field.name,
+        type: field.type
+      })
+    })
+    const newTable: Table = {
+      id: Date.now(),
+      name: tableName,
+      columns: newColumns
+    }
+
+    addTable(newTable)
   };
 
   return (
