@@ -4,13 +4,19 @@ import "./TableArea.css";
 
 interface TableProps{
     table: Table
+    onDragStart: (e: React.DragEvent<HTMLDivElement>) => void
+    ref: React.RefObject<HTMLDivElement | null>
 }
-export default function TableArea({table}: TableProps){
+export default function TableArea({table, onDragStart, ref}: TableProps){
     return(
-        <div className="table">
+        <div className="table"
+        onDragStart={onDragStart}
+        ref={ref}
+        draggable
+        >
             <p className="header">{table.name}</p>
-            {table.columns.map((column) => (
-                <ColumnArea key={column.id} column={column}></ColumnArea>
+            {table.columns.map((column, index) => (
+                <ColumnArea key={index} column={column}></ColumnArea>
             ))}
         </div>
     )
