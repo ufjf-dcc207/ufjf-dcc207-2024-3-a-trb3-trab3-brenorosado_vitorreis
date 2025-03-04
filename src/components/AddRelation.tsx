@@ -1,53 +1,38 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./AddRelation.css";
+import { Table } from "../interface/table";
+import SelectTables from "./selectTables";
 
-function AddRelation() {
+interface AddRelationProps {
+  createRelation: (where: Table, from: Table) => void
+  tables: Table[]
+}
+
+function AddRelation({createRelation, tables}: AddRelationProps) {
   const [relation, setRelation] = useState({
+    where: "",
     from: "",
-    to: "",
     type: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setRelation({ ...relation, [name]: value });
+  const handleChange = (name: "where"|"from"|"type", value:string) => { 
+    const relationCopy = {...relation}
+    relationCopy[name] = value   
+    setRelation({...relationCopy});
   };
 
   const finalizeRelation = () => {
-    console.log("Relação criada:", relation);
-    // Aqui você pode enviar os dados para um backend ou atualizar o estado global.
+    const where = tables.filter(table => table.name === relation.where)[0]
+    const from = tables.filter(table => table.name === relation.from)[0]
+    createRelation(where, from)
   };
 
   return (
     <div className="add-relation">
       <h4>Adicionar Ligação</h4>
-      <input
-        type="text"
-        name="from"
-        placeholder="De"
-        value={relation.from}
-        onChange={handleChange}
-        className="input"
-      />
-      <input
-        type="text"
-        name="to"
-        placeholder="Para"
-        value={relation.to}
-        onChange={handleChange}
-        className="input"
-      />
-      <select
-        name="type"
-        value={relation.type}
-        onChange={handleChange}
-        className="input"
-      >
-        <option value="">Selecione o tipo</option>
-        <option value="one-to-one">Um para Um</option>
-        <option value="one-to-many">Um para Muitos</option>
-        <option value="many-to-many">Muitos para Muitos</option>
-      </select>
+      <SelectTables name="where" handleChange={handleChange} options={tables.map(table => table.name)} />
+      <SelectTables name="from" handleChange={handleChange} options={tables.map(table => table.name)} />
+      <SelectTables name="type" handleChange={handleChange} options={["um para um", "um para muitos"]} />
       <button onClick={finalizeRelation} className="button">
         Finalizar Ligação
       </button>
