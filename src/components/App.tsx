@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <ExhibitionArea />
+      <ExhibitionArea tables={tables} />
       <InsertionArea addTable={addTable} />
     </div>
   );

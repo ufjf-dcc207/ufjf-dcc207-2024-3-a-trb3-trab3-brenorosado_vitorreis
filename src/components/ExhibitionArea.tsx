@@ -1,7 +1,13 @@
 import { useRef } from "react";
 import "./ExhibitionArea.css";
+import { Table } from "../interface/table";
+import TableArea from "./TableArea";
 
-export default function ExhibitionArea() {
+interface ExhibitionAreaProps{
+  tables: Table[]
+}
+
+export default function ExhibitionArea({tables}: ExhibitionAreaProps) {
   const tableRef = useRef<HTMLDivElement>(null);
 
   const onDragStart = (e: React.DragEvent<HTMLDivElement>) => {
@@ -26,12 +32,9 @@ export default function ExhibitionArea() {
 
   return (
     <div className="exhibition-area" onDragOver={onDragOver} onDrop={onDrop}>
-      <div
-        ref={tableRef}
-        className="table"
-        draggable
-        onDragStart={onDragStart}
-      ></div>
+      {tables.map((table) => (
+        <TableArea ref={tableRef} onDragStart={onDragStart} key={table.id} table={table}/>
+      ))}
     </div>
   );
 }
