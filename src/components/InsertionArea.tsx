@@ -5,13 +5,15 @@ import "./InsertionArea.css";
 
 interface InsertionAreaProps{
   addTable: (table: Table) => void
+  createRelation: (where: Table, from: Table) => void
+  tables: Table[]
 }
 
-function InsertionArea({addTable}: InsertionAreaProps) {
+function InsertionArea({addTable, createRelation, tables}: InsertionAreaProps) {
   return (
     <div className="insertion-area">
       <InsertTable addTable={addTable} />
-      <AddRelation />
+      <AddRelation tables={tables} createRelation={createRelation} />
       
     </div>
   );
