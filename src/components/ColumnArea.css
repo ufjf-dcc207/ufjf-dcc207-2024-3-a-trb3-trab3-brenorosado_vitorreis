@@ -1,7 +1,20 @@
 .column{
-    display: grid;
-    grid-area: 1fr 1fr;
     color: black;
     display: flex;
     flex-direction: row;
+
+    .name{
+        width: 50%;
+        border-top: 1px solid black;
+        padding: 3px;
+    }
+
+    .type{
+        width: 50%;
+        text-align: end;
+        border: 1px solid black;
+        border-bottom: 0;
+        border-right: 0;
+        padding: 3px;
+    }
 }
