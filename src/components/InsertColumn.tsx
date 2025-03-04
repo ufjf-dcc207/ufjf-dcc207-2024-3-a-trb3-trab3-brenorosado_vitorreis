@@ -24,8 +24,8 @@ export default function InsertColumn({index, field, handleFieldChange, handleTyp
              className="input"
              onChange={(e) => handleTypeChange(index, e.target.value)}
             >
-                <option value="varchar">varchar</option>
                 <option value="int">int</option>
+                <option value="varchar">varchar</option>
                 <option value="boolean">boolean</option>
                 <option value="date">date</option>
             </select>
