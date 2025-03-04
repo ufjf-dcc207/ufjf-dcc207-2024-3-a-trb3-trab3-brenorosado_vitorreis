@@ -1,4 +1,7 @@
 .column{
     display: grid;
     grid-area: 1fr 1fr;
+    color: black;
+    display: flex;
+    flex-direction: row;
 }

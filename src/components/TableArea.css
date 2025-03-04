@@ -6,11 +6,12 @@
     height: fit-content;
     cursor: pointer;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     .header{
       width: 100%;
       text-align: center;
       font-weight: bold;
+      color: black
     }
   }
