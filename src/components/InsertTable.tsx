@@ -10,9 +10,9 @@ interface InsertionTableProps{
 
 export default function InsertTable({addTable}: InsertionTableProps) {
   const [tableName, setTableName] = useState("");
-  const [fields, setFields] = useState([{name: "", type: ""}]);
+  const [fields, setFields] = useState([{name: "", type: "int"}]);
 
-  const addField = () => setFields([...fields, {name: "", type: "varchar"}]);
+  const addField = () => setFields([...fields, {name: "", type: "int"}]);
 
   const handleFieldChange = (index: number, value: string) => {
     const newFields = [...fields];
@@ -42,6 +42,8 @@ export default function InsertTable({addTable}: InsertionTableProps) {
     }
 
     addTable(newTable)
+    setTableName("")
+    setFields([{name: "", type: "int"}])
   };
 
   return (
