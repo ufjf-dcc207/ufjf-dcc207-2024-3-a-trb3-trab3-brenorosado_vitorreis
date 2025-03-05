@@ -26,16 +26,17 @@ export default function InsertTable({addTable}: InsertionTableProps) {
     setFields(newFields);
   };
 
-  const finalizeTable = () => {
+  const finalizeTable = async () => {
     const newColumns:Column[] = []
-    fields.forEach((field) => {
+    for (const field of fields) {
       newColumns.push({
         id: Date.now(),
         name: field.name,
         type: field.type,
         foreingnKey: null
-      })
-    })
+      });
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
     const newTable: Table = {
       id: Date.now(),
       name: tableName,
