@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./AddRelation.css";
 import { Table } from "../interface/table";
-import SelectTables from "./selectTables";
+import SelectTables from "./SelectTables";
 
 interface AddRelationProps {
   createRelation: (where: Table, from: Table) => void
