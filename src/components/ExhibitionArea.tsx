@@ -3,17 +3,17 @@ import "./ExhibitionArea.css";
 import { Table } from "../interface/table";
 import TableArea from "./TableArea";
 
-interface ExhibitionAreaProps{
-  tables: Table[]
+interface ExhibitionAreaProps {
+  tables: Table[];
 }
 
-export default function ExhibitionArea({tables}: ExhibitionAreaProps) {
-  const tableRef = useRef<HTMLDivElement>(null);
+export default function ExhibitionArea({ tables }: ExhibitionAreaProps) {
+  const tableRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const onDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+  const onDragStart = (e: React.DragEvent<HTMLDivElement>, index: number) => {
     const target = e.target as HTMLDivElement;
     const rect = target.getBoundingClientRect();
-    e.dataTransfer.setData("text/plain", `${e.clientX - rect.left},${e.clientY - rect.top}`);
+    e.dataTransfer.setData("text/plain", `${e.clientX - rect.left},${e.clientY - rect.top},${index}`);
   };
 
   const onDragOver = (e: React.DragEvent<HTMLDivElement>) => {
@@ -22,18 +22,27 @@ export default function ExhibitionArea({tables}: ExhibitionAreaProps) {
 
   const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    const offset = e.dataTransfer.getData("text/plain").split(",");
-    const table = tableRef.current;
+    const data = e.dataTransfer.getData("text/plain").split(",");
+    const offsetX = parseInt(data[0], 10);
+    const offsetY = parseInt(data[1], 10);
+    const index = parseInt(data[2], 10);
+    const table = tableRefs.current[index];
     if (table) {
-      table.style.left = `${e.clientX - parseInt(offset[0], 10)}px`;
-      table.style.top = `${e.clientY - parseInt(offset[1], 10)}px`;
+      table.style.left = `${e.clientX - offsetX}px`;
+      table.style.top = `${e.clientY - offsetY}px`;
     }
   };
 
   return (
     <div className="exhibition-area" onDragOver={onDragOver} onDrop={onDrop}>
-      {tables.map((table) => (
-        <TableArea ref={tableRef} onDragStart={onDragStart} key={table.id} table={table}/>
+      {tables.map((table, index) => (
+        <TableArea
+          key={`${table.name}-${table.id}`}
+          ref={(el) => (tableRefs.current[index] = el)}
+          onDragStart={onDragStart}
+          index={index}
+          table={table}
+        />
       ))}
     </div>
   );
