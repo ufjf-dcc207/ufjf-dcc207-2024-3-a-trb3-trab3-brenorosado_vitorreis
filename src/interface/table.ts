@@ -4,4 +4,5 @@ export type Table = {
     id: number
     name: string,
     columns: Column[],
+    primaryKey: number
 }
