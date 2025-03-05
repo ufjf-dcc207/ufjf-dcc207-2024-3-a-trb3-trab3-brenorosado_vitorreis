@@ -13,13 +13,14 @@ function App() {
   }
 
   function createRelation(where: Table, from: Table){
+    const fromPK = from.columns.filter(column => column.id === from.primaryKey)[0]
     const newRelationColumn: Column = {
       id: Date.now(),
       name: `${from.name}_id`,
-      type: from.columns[0].type,
+      type: fromPK.type,
       foreingnKey: {
         tableId: from.id,
-        columnId: from.columns[0].id
+        columnId: fromPK.id
       }
     }
 
