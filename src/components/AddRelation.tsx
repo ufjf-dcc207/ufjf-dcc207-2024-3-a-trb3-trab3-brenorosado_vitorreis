@@ -4,7 +4,7 @@ import { Table } from "../interface/table";
 import SelectTables from "./SelectTables";
 
 interface AddRelationProps {
-  createRelation: (where: Table, from: Table) => void
+  createRelation: (where: Table, from: Table, type: string) => void
   tables: Table[]
 }
 
@@ -24,7 +24,7 @@ function AddRelation({createRelation, tables}: AddRelationProps) {
   const finalizeRelation = () => {
     const where = tables.filter(table => table.name === relation.where)[0]
     const from = tables.filter(table => table.name === relation.from)[0]
-    createRelation(where, from)
+    createRelation(where, from, relation.type)
   };
 
   return (
@@ -32,7 +32,7 @@ function AddRelation({createRelation, tables}: AddRelationProps) {
       <h4>Adicionar Ligação</h4>
       <SelectTables name="where" handleChange={handleChange} options={tables.map(table => table.name)} />
       <SelectTables name="from" handleChange={handleChange} options={tables.map(table => table.name)} />
-      <SelectTables name="type" handleChange={handleChange} options={["1:n ou 1:1", "n:n"]} />
+      <SelectTables name="type" handleChange={handleChange} options={["1:n", "n:n"]} />
       <button onClick={finalizeRelation} className="button">
         Finalizar Ligação
       </button>

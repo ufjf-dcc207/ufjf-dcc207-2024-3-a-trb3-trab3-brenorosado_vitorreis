@@ -5,7 +5,7 @@ import "./InsertionArea.css";
 
 interface InsertionAreaProps{
   addTable: (table: Table) => void
-  createRelation: (where: Table, from: Table) => void
+  createRelation: (where: Table, from: Table, type: string) => void
   tables: Table[]
 }
 
