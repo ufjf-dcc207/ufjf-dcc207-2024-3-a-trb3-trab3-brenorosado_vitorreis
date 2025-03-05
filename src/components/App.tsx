@@ -16,7 +16,7 @@ function App() {
     const fromPK = from.columns.filter(column => column.id === from.primaryKey)[0]
     const newRelationColumn: Column = {
       id: Date.now(),
-      name: `${from.name}_id`,
+      name: `${from.name}_${fromPK.name}`,
       type: fromPK.type,
       foreingnKey: {
         tableId: from.id,
