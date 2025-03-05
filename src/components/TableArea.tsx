@@ -17,7 +17,7 @@ export default function TableArea({table, onDragStart, ref, index}: TableProps){
         >
             <p className="header">{table.name}</p>
             {table.columns.map((column) => (
-                <ColumnArea key={`${table.name}-${column.id}`} column={column}></ColumnArea>
+                <ColumnArea key={column.id} column={column} isPK={column.id === table.primaryKey}></ColumnArea>
             ))}
         </div>
     )
