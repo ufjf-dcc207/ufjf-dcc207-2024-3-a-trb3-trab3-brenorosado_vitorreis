@@ -16,11 +16,16 @@ function App() {
     const newRelationColumn: Column = {
       id: Date.now(),
       name: `${from.name}_id`,
-      type: "int"
+      type: from.columns[0].type,
+      foreingnKey: {
+        tableId: from.id,
+        columnId: from.columns[0].id
+      }
     }
 
     const tablesCopy = [...tables]
     tablesCopy.filter(table => table.id === where.id)[0].columns = [...where.columns, newRelationColumn]
+    console.log(tablesCopy)
     setTables([...tablesCopy])
   }
 

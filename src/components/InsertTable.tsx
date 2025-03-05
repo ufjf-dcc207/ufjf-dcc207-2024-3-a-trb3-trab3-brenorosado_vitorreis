@@ -32,13 +32,15 @@ export default function InsertTable({addTable}: InsertionTableProps) {
       newColumns.push({
         id: Date.now(),
         name: field.name,
-        type: field.type
+        type: field.type,
+        foreingnKey: null
       })
     })
     const newTable: Table = {
       id: Date.now(),
       name: tableName,
-      columns: newColumns
+      columns: newColumns,
+      primaryKey: newColumns[0].id
     }
 
     addTable(newTable)
