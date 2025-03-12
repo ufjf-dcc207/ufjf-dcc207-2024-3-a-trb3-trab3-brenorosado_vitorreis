@@ -1,7 +1,6 @@
 import { Table } from "../interface/table";
 import AddRelation from "./AddRelation";
 import InsertTable from "./InsertTable";
-import "./InsertionArea.css";
 
 interface InsertionAreaProps{
   addTable: (table: Table) => void

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./InsertTable.css";
 import InsertColumn from "./InsertColumn";
 import { Table } from "../interface/table";
 import { Column } from "../interface/column";

@@ -1,5 +1,4 @@
 import { Column } from "../interface/column";
-import "./ColumnArea.css"
 
 interface ColumnProps{
     column: Column

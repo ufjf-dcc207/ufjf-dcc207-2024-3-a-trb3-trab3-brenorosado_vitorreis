@@ -1,4 +1,3 @@
-import "./App.css";
 import ExhibitionArea from "./ExhibitionArea";
 import InsertionArea from "./InsertionArea";
 import { useReducer } from "react";

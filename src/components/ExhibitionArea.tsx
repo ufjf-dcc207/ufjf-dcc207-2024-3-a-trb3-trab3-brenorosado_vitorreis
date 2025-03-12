@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import "./ExhibitionArea.css";
 import { Table } from "../interface/table";
 import TableArea from "./TableArea";
 

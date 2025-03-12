@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./AddRelation.css";
 import { Table } from "../interface/table";
 import SelectTables from "./SelectTables";
 

@@ -1,3 +1,11 @@
+@import "./AddRelation.css";
+@import "./App.css";
+@import "./ColumnArea.css";
+@import "./ExhibitionArea.css";
+@import "./InsertionArea.css";
+@import "./InsertTable.css";
+@import "./TableArea.css";
+
 *{
   margin: 0;
 }

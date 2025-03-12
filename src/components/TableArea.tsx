@@ -1,6 +1,5 @@
 import { Table } from "../interface/table";
 import ColumnArea from "./ColumnArea";
-import "./TableArea.css";
 
 interface TableProps{
     table: Table
