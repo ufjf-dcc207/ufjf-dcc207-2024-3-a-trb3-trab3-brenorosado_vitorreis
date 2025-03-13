@@ -1,11 +1,20 @@
 import ExhibitionArea from "./ExhibitionArea";
 import InsertionArea from "./InsertionArea";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { Table } from "../interface/table";
 import { tablesReducer } from "../function/tableReducer";
+import { fetchFakeData } from "../api/fakeData";
 
 export default function App() {
   const [tables, dispatch] = useReducer(tablesReducer, []);
+
+  useEffect(() => {
+    async function getFakeData() {
+      return await fetchFakeData("persons?_quantity=5");
+    }
+
+    console.log(getFakeData());
+  }, []);
 
   function addTable(table: Table) {
     dispatch({ type: "ADD_TABLE", payload: table });
