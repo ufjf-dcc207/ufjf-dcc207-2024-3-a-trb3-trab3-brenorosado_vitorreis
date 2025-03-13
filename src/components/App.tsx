@@ -1,10 +1,16 @@
 import ExhibitionArea from "./ExhibitionArea";
+import { useState } from "react";
 import InsertionArea from "./InsertionArea";
 import { useReducer } from "react";
 import { Table } from "../interface/table";
 import { tablesReducer } from "../function/tableReducer";
+import SettingsModal from "./SettingsModal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [tables, dispatch] = useReducer(tablesReducer, []);
 
   function addTable(table: Table) {
@@ -17,8 +23,16 @@ export default function App() {
 
   return (
     <div className="app-container">
+        
+      <button className="open-modal-button" onClick={() => setIsModalOpen(true)}>
+      <FontAwesomeIcon icon={faGear} />
+            </button>
+
       <ExhibitionArea tables={tables} />
       <InsertionArea tables={tables} addTable={addTable} createRelation={createRelation} />
+
+      <SettingsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
     </div>
   );
 }
