@@ -28,3 +28,10 @@
    cursor: pointer; 
    transition: .3s ease all; 
 }
+
+
+.add-relation h4 {
+  text-align:center;  
+  font-weight:bold;  
+  color:#333;  
+}
