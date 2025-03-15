@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Column } from "../interface/column";
-import GenerateExample from "./GenerateExample";
 import SelectField from "./SelectField";
+import { GenerateExample } from "./GenerateExample";
 
 interface GenerateColumnExampleProps{
     column: Column
@@ -8,13 +9,19 @@ interface GenerateColumnExampleProps{
 }
 
 export default function GenerateColumnExample({column, isSelecting}: GenerateColumnExampleProps){
+    const [selectedField, setSelectedField] = useState("");
+
+    const handleChange = (value:string) => { 
+        setSelectedField(value);
+      };
+
     return(
         <div className="column">
             <div className="name">{column.name}</div>
             {isSelecting ? (
-                <SelectField/>
+                <SelectField handleChange={handleChange}/>
             ): (
-                <GenerateExample/>
+                <GenerateExample name={column.name} selectedField={selectedField} />
             )}
         </div>
     )
