@@ -1,0 +1,27 @@
+{
+    "types": [
+        {"value": "firstName", "children": "Nome próprio"},
+        {"value": "lastName", "children": "Sobrenome"},
+        {"value": "fullName", "children": "Nome completo"},
+        {"value": "email", "children": "E-mail"},
+        {"value": "phoneNumber", "children": "Número de telefone"},
+        {"value": "text", "children": "Texto aleatório"},
+        {"value": "number", "children": "Número aleatório"},
+        {"value": "date", "children": "Data aleatória"},
+        {"value": "country", "children": "País"},
+        {"value": "city", "children": "Cidade"},
+        {"value": "address", "children": "Endereço"},
+        {"value": "postcode", "children": "Código postal"},
+        {"value": "company", "children": "Nome de empresa"},
+        {"value": "word", "children": "Palavra aleatória"},
+        {"value": "sentence", "children": "Frase aleatória"},
+        {"value": "paragraph", "children": "Parágrafo aleatório"},
+        {"value": "boolean", "children": "Valor verdadeiro ou falso"},
+        {"value": "image", "children": "URL de imagem aleatória"},
+        {"value": "uuid", "children": "UUID aleatório"},
+        {"value": "currencyCode", "children": "Código de moeda"},
+        {"value": "iban", "children": "Número IBAN"},
+        {"value": "username", "children": "Nome de usuário"},
+        {"value": "password", "children": "Senha aleatória"}
+    ]
+}
