@@ -24,14 +24,34 @@ function AddRelation({createRelation, tables}: AddRelationProps) {
     const where = tables.filter(table => table.name === relation.where)[0]
     const from = tables.filter(table => table.name === relation.from)[0]
     createRelation(where, from, relation.type)
+    setRelation({
+      where: "",
+      from: "",
+      type: "",
+    })
   };
 
   return (
     <div className="add-relation">
       <h4>Adicionar Ligação</h4>
-      <SelectTables name="where" handleChange={handleChange} options={tables.map(table => table.name)} />
-      <SelectTables name="from" handleChange={handleChange} options={tables.map(table => table.name)} />
-      <SelectTables name="type" handleChange={handleChange} options={["1:n", "n:n"]} />
+      <SelectTables
+      name="where"
+      handleChange={handleChange}
+      options={tables.map(table => table.name)}
+      value={relation.where} 
+      />
+      <SelectTables
+      name="from"
+      handleChange={handleChange}
+      options={tables.map(table => table.name)}
+      value={relation.from}
+      />
+      <SelectTables
+      name="type"
+      handleChange={handleChange}
+      options={["1:n", "n:n"]}
+      value={relation.type}
+      />
       <button onClick={finalizeRelation} className="button">
         Finalizar Ligação
       </button>
