@@ -34,13 +34,13 @@ export default function App() {
     <div className="app-container">
         
       <button className="open-modal-button" onClick={() => setIsModalOpen(true)}>
-      <FontAwesomeIcon icon={faGear} />
-            </button>
+        <FontAwesomeIcon icon={faGear} />
+      </button>
 
       <ExhibitionArea tables={tables} />
       <InsertionArea tables={tables} addTable={addTable} createRelation={createRelation} />
 
-      <SettingsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <SettingsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} tables={tables} />
 
     </div>
   );
