@@ -1,14 +1,31 @@
-import { fetchFakeData } from "../api/fakeData"
+import { useEffect, useState } from "react";
+import { fetchFakeData } from "../api/fakeData";
 
-interface GenerateColumnExampleProps{
-    selectedField: string
-    name: string
+interface GenerateExampleProps {
+  selectedField: string;
+  name: string;
 }
 
-export async function GenerateExample({selectedField, name}: GenerateColumnExampleProps){
-    const apiResult = await fetchFakeData(`&${name}=${selectedField}`)
-    console.log(apiResult)
-    return(
-        <div className="type">{"FOI"}</div>
-    )
+interface ApiResult {
+  [key: string]: any;
+}
+
+export function GenerateExample({ selectedField, name }: GenerateExampleProps) {
+  const [apiResult, setApiResult] = useState<ApiResult | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetchFakeData(`&${name}=${selectedField}`);
+      console.log(result)
+      setApiResult(result);
+    };
+
+    fetchData();
+  }, [selectedField, name]);
+
+  return (
+    <div className="type">
+      {apiResult ? apiResult[name] : "Carregando..."}
+    </div>
+  );
 }
