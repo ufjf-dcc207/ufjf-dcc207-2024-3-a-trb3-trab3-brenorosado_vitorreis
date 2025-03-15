@@ -1,28 +1,44 @@
 .insert-table {
-    padding: 10px;
-    max-width: 400px; 
-    margin: auto; 
-  }
-  
-  .input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border: solid thin #ccc;
-  }
-  
-  .button {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 32px;
-    cursor: pointer;
-  }
+  padding: 30px;
+  max-width: 80%; 
+  margin: auto; 
+  background-color: #f9f9f9; 
+  border-radius: 12px; 
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  height: auto;
+  flex-grow: 1;
+}
 
-  h4 {
-    text-align: center;
-  }
-  
+.insert-table .input {
+  width: calc(100% - 24px);
+  padding:12px; 
+  margin-bottom:15px; 
+  border-radius:8px; 
+  border:none; 
+  background-color:#fff; 
+  box-shadow: inset 0px -1px #ccc; 
+}
+
+.insert-table .button {
+   width:100%; 
+   padding:12px; 
+   margin-top:15px; 
+   background-color:#007bff; 
+   color:white; 
+   border:none; 
+   border-radius:32px; 
+   cursor:pointer; 
+   transition:.3s ease all; 
+}
+
+.insert-table .button:hover{
+   background-color:#0056d2; 
+   box-shadow:0px4px10px rgba(0,123,255,.2);  
+}
+
+.insert-table h4 {
+   text-align:center;  
+   font-weight:bold;  
+   color:#333;  
+}
+
