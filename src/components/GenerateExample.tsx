@@ -7,7 +7,7 @@ interface GenerateExampleProps {
 }
 
 interface ApiResult {
-  [key: string]: any;
+  [key: string]: [];
 }
 
 export function GenerateExample({ selectedField, name }: GenerateExampleProps) {
