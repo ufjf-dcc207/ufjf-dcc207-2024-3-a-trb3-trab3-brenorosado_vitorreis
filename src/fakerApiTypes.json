@@ -4,7 +4,6 @@
         {"value": "number", "children": "Numero Aleatório"},
         {"value": "boolean_digit", "children": "Dígito Booleano"},
         {"value": "buildingNumber", "children": "Número de Casa"},
-        {"value": "building_number", "children": "Veja buildingNumber"},
         {"value": "card_expiration", "children": "Data de Expiração do Cartão"},
         {"value": "card_number", "children": "Número do Cartão"},
         {"value": "card_type", "children": "Tipo de Cartão"},
@@ -16,14 +15,11 @@
         {"value": "country_code", "children": "Veja countryCode"},
         {"value": "date", "children": "Data"},
         {"value": "dateTime", "children": "Data e Hora"},
-        {"value": "date_time", "children": "Veja dateTime"},
         {"value": "ean", "children": "EAN"},
         {"value": "email", "children": "Email"},
         {"value": "firstName", "children": "Primeiro Nome"},
-        {"value": "first_name", "children": "Veja firstName"},
         {"value": "image", "children": "Imagem"},
         {"value": "lastName", "children": "Último Nome"},
-        {"value": "last_name", "children": "Veja lastName"},
         {"value": "latitude", "children": "Latitude"}
     ]
 }
