@@ -7,6 +7,6 @@ export async function fetchFakeData(uri:string) {
       return response.data.data[0];
     } catch (error) {
       console.error("Erro ao buscar os dados:", error);
-      return [];
+      return error;
     }
 }
