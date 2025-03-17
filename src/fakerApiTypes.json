@@ -12,7 +12,6 @@
         {"value": "counter", "children": "Contador"},
         {"value": "country", "children": "País"},
         {"value": "countryCode", "children": "Código do País"},
-        {"value": "country_code", "children": "Veja countryCode"},
         {"value": "date", "children": "Data"},
         {"value": "dateTime", "children": "Data e Hora"},
         {"value": "ean", "children": "EAN"},
